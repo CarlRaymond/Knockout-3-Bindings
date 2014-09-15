@@ -13,15 +13,15 @@ ko.bindingHandlers.modal = {
 		// Evaluate observable to get initial state
 		var initshow = options.show();
 		options.show = initshow;
-		$(element).modal(options);
+		jQuery(element).modal(options);
 
 		// Bind modal visibility events to observable
-		$(element).on('hide.bs.modal', function () {
+		jQuery(element).on('hide.bs.modal', function () {
 			var options = ko.utils.unwrapObservable(valueAccessor() || {});
 			options.show(false);
 		});
 
-		$(element).on('show.bs.modal', function () {
+		jQuery(element).on('show.bs.modal', function () {
 			var options = ko.utils.unwrapObservable(valueAccessor() || {});
 			options.show(true);
 		});
@@ -30,7 +30,7 @@ ko.bindingHandlers.modal = {
 
 	update: function (element, valueAccessor, allBindings, viewModel, bindingContext) {
 		var options = ko.utils.unwrapObservable(valueAccessor() || {});
-		$(element).modal(options.show() ? 'show' : 'hide');
+		jQuery(element).modal(options.show() ? 'show' : 'hide');
 	}
 };
 

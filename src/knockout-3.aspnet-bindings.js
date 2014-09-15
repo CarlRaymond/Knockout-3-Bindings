@@ -49,7 +49,7 @@ ko.bindingHandlers.aspnetIndexedName = {
 			}
 		}
 
-		$(element).attr({ name: name, id: name });
+		jQuery(element).attr({ name: name, id: name });
 
 	}
 };
@@ -80,10 +80,10 @@ ko.bindingHandlers.aspnetIndexedValidation = {
 		var bindings = { modelState: 'modelState' };
 		var expr = valueAccessor();
 		if (typeof expr === 'string') {
-			$.extend(bindings, { name: expr });
+			jQuery.extend(bindings, { name: expr });
 		}
 		else {
-			$.extend(bindings, expr);
+			jQuery.extend(bindings, expr);
 		}
 
 
@@ -114,7 +114,7 @@ ko.bindingHandlers.aspnetIndexedValidation = {
 			}
 		}
 
-		$elem = $(element);
+		$elem = jQuery(element);
 		$elem.attr({ 'data-valmsg-for': name, 'data-valmsg-replace': true });
 
 		var modelStateProperty = bindings.modelState;
